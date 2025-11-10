@@ -1,75 +1,63 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Thonny Awards — Votaciones</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="../static/styles.css">
 </head>
 <body class="page">
 
     <header class="site-header">
         <div class="container header-inner">
-                <a href="/" class="logo-link" aria-label="Inicio">
-                <img src="{{ url_for('static', filename='images/Logo.jpg') }}" alt="Logo Thonny Awards" class="logo">
+            <a href="#" class="logo-link" aria-label="Inicio">
+            <img src="../static/images/Logo.jpg" alt="Logo Thonny Awards" class="logo" height="80">
+            <!-- Usamos tu estilo metal en el nombre -->
+            <span class="metal" style="font-size: 1.5rem; font-weight: 800;">THONNY AWARDS</span>
             </a>
             <nav class="main-nav" role="navigation" aria-label="Navegación principal">
-                <a class="nav-btn" href="#about">Más información</a>
-                <a class="nav-btn primary" href="/vote">Votar</a>
+                <a class="nav-btn secondary" href="about.html">Más información</a>
+                <a class="nav-btn primary" href="vote.html">Votar</a>
             </nav>
         </div>
     </header>
 
+    <!-- MAIN ahora crece y empuja el footer. Se le ha añadido el padding vertical que se quitó del body. -->
     <main>
-        <section class="hero container" aria-labelledby="hero-title">
-            <div class="hero-content">
-                <h1 id="hero-title" class="hero-title">Thonny Awards — Los cortos</h1>
-                <p class="hero-sub">Descubre y vota por los mejores cortometrajes seleccionados para los Thonny Awards.</p>
-            </div>
-            {#
-            <div class="hero-media">
-                <!-- Ajusta la ruta del vídeo según tu estructura: usa url_for para servir desde static -->
-                <video class="hero-video" controls playsinline preload="metadata" poster="{{ url_for('static', filename='images/Logo.jpg') }}" aria-label="Vídeo de presentación de los Thonny">
-                    <source src="{{ url_for('static', filename='videos/thonny_presentation.mp4') }}" type="video/mp4">
-                    <!-- Si quieres usar YouTube en su lugar, sustituye el elemento por un iframe. -->
-                    Tu navegador no soporta el elemento de vídeo. Puedes descargar el vídeo desde el servidor.
-                </video>
-            #}
+        <!-- Simulamos un contenedor para centrar las secciones (igual que tu HTML) -->
+        <div class="container">
+            <section class="hero" aria-labelledby="hero-title">
+                <div class="hero-content">
+                    <h1 id="hero-title" class="hero-title metal">Thonny Awards — Los cortos</h1>
+                    <p class="hero-sub">Descubre y vota por los mejores cortometrajes seleccionados para los Thonny Awards.</p>
+                </div>
 
                 <div class="hero-actions">
-                    <a class="btn" href="#about" role="button">Más información</a>
-                    <a class="btn primary" href="/vote" role="button">Votar ahora</a>
+                    <a class="btn primary" href="vote.html" role="button">Votar ahora</a>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <section id="about" class="container about" aria-labelledby="about-title">
-            <h2 id="about-title">¿Qué son los Thonny Awards?</h2>
-            <p>Los Thonny Awards celebran la creatividad en formato corto. Aquí puedes ver los cortos finalistas, conocer a los creadores y votar por tu favorito.</p>
-            <ul class="highlights">
-                <li>Selección oficial de cortometrajes</li>
-                <li>Votación pública y jurado</li>
-                <li>Evento de proclamación en directo</li>
-            </ul>
-            <p class="about-actions">
-                <a class="btn" href="/about">Leer más</a>
-                <a class="btn primary" href="/vote">Ir a votar</a>
-            </p>
-        </section>
+            <section id="about" class="about" aria-labelledby="about-title">
+                <h2 id="about-title" class="metal">¿Qué son los Thonny Awards?</h2>
+                <p>Los Thonny Awards celebran la creatividad en formato corto. Aquí puedes ver los cortos finalistas, conocer a los creadores y votar por tu favorito.</p>
+                <ul class="highlights">
+                    <li>Selección oficial de cortometrajes</li>
+                    <li>Votación pública y jurado especializado</li>
+                    <li>Evento de proclamación en directo</li>
+                </ul>
+                <p class="about-actions">
+                    <a class="nav-btn secondary" href="about.html">Leer más sobre nuestra historia</a>
+                    <a class="nav-btn primary" href="vote.html">Ir a votar</a>
+                </p>
+            </section>
+
+        </div>
     </main>
 
-    <footer class="site-footer container" role="contentinfo">
-        <p>© Thonny Awards — Votaciones. Hecho con ❤️ para el cine breve.</p>
+    <footer class="site-footer" role="contentinfo">
+        <p class="metal" style="font-size: 1.1rem;">Thonny Awards</p>
+        <p>© 2025. Hecho con ❤️ para el cine breve.</p>
     </footer>
-
-    <!-- Pequeño JS para accesibilidad de teclas (opcional) -->
-    <script>
-        // Acceso rápido con teclado: V para votar, I para información
-        document.addEventListener('keydown', function(e){
-            if (e.key === 'v' || e.key === 'V') window.location.href = '/vote';
-            if (e.key === 'i' || e.key === 'I') window.location.href = '#about';
-        });
-    </script>
 
 </body>
 </html>
